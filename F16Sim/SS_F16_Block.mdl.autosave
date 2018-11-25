@@ -105,7 +105,7 @@ Model {
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Sun Nov 25 16:34:07 2018"
-  RTWModifiedTimeStamp	  465064436
+  RTWModifiedTimeStamp	  465064936
   ModelVersionFormat	  "1.%<AutoIncrement:84>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1310,9 +1310,9 @@ Model {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "90"
-      Position		      [340, 270, 370, 300]
+      Position		      [390, 265, 420, 295]
       ZOrder		      2
-      Value		      "C * trim_state"
+      Value		      "[trim_state(1:12); 0;0;0;0;0;0]"
     }
     Block {
       BlockType		      Demux
@@ -1817,7 +1817,7 @@ Model {
       Name		      "rad2deg1"
       SID		      "65"
       Ports		      [1, 1]
-      Position		      [410, 272, 435, 298]
+      Position		      [450, 267, 475, 293]
       ZOrder		      1
       RequestExecContextInheritance off
       System {
@@ -2441,21 +2441,6 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      52
-      SrcBlock		      "Constant2"
-      SrcPort		      1
-      DstBlock		      "rad2deg1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      54
-      SrcBlock		      "rad2deg1"
-      SrcPort		      1
-      Points		      [50, 0]
-      DstBlock		      "Sum"
-      DstPort		      2
-    }
-    Line {
       ZOrder		      55
       SrcBlock		      "State-Space"
       SrcPort		      1
@@ -2478,6 +2463,21 @@ Model {
 	DstBlock		"Demux"
 	DstPort			1
       }
+    }
+    Line {
+      ZOrder		      59
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      DstBlock		      "rad2deg1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      60
+      SrcBlock		      "rad2deg1"
+      SrcPort		      1
+      Points		      [10, 0]
+      DstBlock		      "Sum"
+      DstPort		      2
     }
     Annotation {
       SID		      "62"
