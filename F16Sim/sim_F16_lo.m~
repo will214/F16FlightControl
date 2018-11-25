@@ -1,0 +1,10 @@
+function [] = steady_flight_lo_sim(altitude, velocity)
+
+% trim settings
+thrust = 5000;          % thrust, lbs
+elevator = -0.09;       % elevator, degrees
+alpha = 8.49;              % AOA, degrees
+rudder = -0.01;             % rudder angle, degrees
+aileron = 0.01;            % aileron, degrees
+
+[trim_state, trim_thrust, trim_control, dLEF, UX] = trim_F16(thrust, elevator, alpha, aileron, rudder, velocity, altitude);

@@ -1,5 +1,5 @@
 Model {
-  Name			  "LIN_F16Block"
+  Name			  "LIN_F16Block_lo"
   Version		  9.2
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
@@ -40,40 +40,40 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.143"
+    ComputedModelVersion    "1.146"
     NumModelReferences	    0
     NumTestPointedSignals   5
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "LIN_F16Block/In1"
+      FullBlockPath	      "LIN_F16Block_lo/In1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "LIN_F16Block/In2"
+      FullBlockPath	      "LIN_F16Block_lo/In2"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "LIN_F16Block/In3"
+      FullBlockPath	      "LIN_F16Block_lo/In3"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "LIN_F16Block/In4"
+      FullBlockPath	      "LIN_F16Block_lo/In4"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "LIN_F16Block/Mux"
+      FullBlockPath	      "LIN_F16Block_lo/Mux"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -115,7 +115,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1746.0, -189.0, 1226.0, 989.0]
+      Location		      [-1920.0, -257.0, 1226.0, 989.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -132,20 +132,41 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		5
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1188.0, 813.0]
-	ZoomFactor		[1.25]
-	Offset			[-90.1900323275857, -197.08998518318742]
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		3
+	Object {
+	  $ObjectID		  5
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1188.0, 813.0]
+	  ZoomFactor		  [0.95784896848026624]
+	  Offset		  [-174.61608297413795, -296.88840921336208]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "5"
+	  Extents		  [1188.0, 813.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-339.0, -325.875]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "54"
+	  Extents		  [1188.0, 813.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-339.0, -335.875]
+	}
+	PropName		"EditorsInfo"
       }
       Object {
 	$PropName		"DockComponentsInfo"
-	$ObjectID		6
+	$ObjectID		8
 	$ClassName		"Simulink.DockComponentInfo"
 	Type			"GLUE2:PropertyInspector"
 	ID			"Property Inspector"
@@ -175,9 +196,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 12:03:28 2018"
-  RTWModifiedTimeStamp	  465048045
-  ModelVersionFormat	  "1.%<AutoIncrement:143>"
+  LastModifiedDate	  "Sun Nov 25 11:59:13 2018"
+  RTWModifiedTimeStamp	  465047910
+  ModelVersionFormat	  "1.%<AutoIncrement:146>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -232,13 +253,13 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    9
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "LIN_F16Block"
+    model_		    "LIN_F16Block_lo"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "LIN_F16Block"
+      Cell		      "LIN_F16Block_lo"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -250,7 +271,7 @@ Model {
   }
   Object {
     $PropName		    "InstrumentedSignals"
-    $ObjectID		    8
+    $ObjectID		    10
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
@@ -401,7 +422,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      11
       Version		      "1.18.1"
       DisabledProps	      []
       Description	      ""
@@ -409,7 +430,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  12
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -450,7 +471,7 @@ Model {
 	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  13
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -491,7 +512,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  14
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -558,7 +579,7 @@ Model {
 	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  15
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -677,7 +698,7 @@ Model {
 	  UnderSpecifiedDimensionMsg "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  16
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -725,7 +746,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  17
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -744,7 +765,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  18
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -777,7 +798,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  19
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -864,7 +885,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      20
 	      Version		      "1.18.1"
 	      Array {
 		Type			"Cell"
@@ -952,7 +973,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      21
 	      Version		      "1.18.1"
 	      Array {
 		Type			"Cell"
@@ -1058,7 +1079,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  20
+	  $ObjectID		  22
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1108,11 +1129,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    11
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    23
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1401,8 +1422,8 @@ Model {
     }
   }
   System {
-    Name		    "LIN_F16Block"
-    Location		    [-1746, -189, -520, 800]
+    Name		    "LIN_F16Block_lo"
+    Location		    [-1920, -257, -694, 732]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1417,7 +1438,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "96"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "110"
     Block {
@@ -1479,8 +1500,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Aileron\nActuator"
-	Location		[-1920, -257, 0, 732]
-	Open			off
+	Location		[-1920, -257, -694, 732]
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1519,7 +1540,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [365, 29, 395, 61]
 	  ZOrder		  -3
-	  InitialCondition	  "trim_control_lin(2)"
+	  InitialCondition	  "trim_control(2)"
 	  UpperSaturationLimit	  "21.5"
 	  LowerSaturationLimit	  "-21.5"
 	}
@@ -1613,7 +1634,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Elevator\nActuator"
-	Location		[-1920, -257, 0, 732]
+	Location		[-1920, -257, -694, 732]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1653,7 +1674,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [370, 40, 400, 70]
 	  ZOrder		  -3
-	  InitialCondition	  "trim_control_lin(1)"
+	  InitialCondition	  "trim_control(1)"
 	  UpperSaturationLimit	  "25"
 	  LowerSaturationLimit	  "-25"
 	}
@@ -1734,7 +1755,7 @@ Model {
       Ports		      [1, 1]
       Position		      [345, 20, 375, 50]
       ZOrder		      -9
-      InitialCondition	      "trim_state_lin"
+      InitialCondition	      "trim_state"
     }
     Block {
       BlockType		      SubSystem
@@ -2696,7 +2717,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Rudder\nActuator"
-	Location		[-1920, -257, 0, 732]
+	Location		[-1920, -257, -694, 732]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2736,7 +2757,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [370, 20, 400, 50]
 	  ZOrder		  -3
-	  InitialCondition	  "trim_control_lin(3)"
+	  InitialCondition	  "trim_control(3)"
 	  UpperSaturationLimit	  "30"
 	  LowerSaturationLimit	  "-30"
 	}
@@ -2849,8 +2870,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Thrust\nModel"
-	Location		[-1920, -257, 0, 732]
-	Open			off
+	Location		[-1920, -257, -694, 732]
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2888,7 +2909,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [370, 20, 400, 50]
 	  ZOrder		  -3
-	  InitialCondition	  "trim_thrust_lin"
+	  InitialCondition	  "trim_thrust"
 	  UpperSaturationLimit	  "30"
 	  LowerSaturationLimit	  "-30"
 	}
