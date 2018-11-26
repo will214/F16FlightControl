@@ -1,12 +1,12 @@
 Model {
-  Name			  "SS_F16_Block_winputs"
+  Name			  "SS_F16_Block_lo"
   Version		  9.2
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.83"
+    ComputedModelVersion    "1.84"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 11:42:18 2018"
-  RTWModifiedTimeStamp	  465046934
-  ModelVersionFormat	  "1.%<AutoIncrement:83>"
+  LastModifiedDate	  "Sun Nov 25 18:18:21 2018"
+  RTWModifiedTimeStamp	  465070700
+  ModelVersionFormat	  "1.%<AutoIncrement:84>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -175,11 +175,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "SS_F16_Block_winputs"
+    model_		    "SS_F16_Block_lo"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "SS_F16_Block_winputs"
+      Cell		      "SS_F16_Block_lo"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1175,7 +1175,7 @@ Model {
     }
   }
   System {
-    Name		    "SS_F16_Block_winputs"
+    Name		    "SS_F16_Block_lo"
     Location		    [-1584, -203, -346, 562]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1193,7 +1193,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "73"
+    SIDHighWatermark	    "74"
     Block {
       BlockType		      SubSystem
       Name		      "Aileron Disturbance"
@@ -1257,10 +1257,10 @@ Model {
     Block {
       BlockType		      Constant
       Name		      "Constant"
-      SID		      "8"
-      Position		      [340, 255, 370, 285]
-      ZOrder		      -3
-      Value		      "trim_state"
+      SID		      "74"
+      Position		      [365, 275, 395, 305]
+      ZOrder		      6
+      Value		      "[trim_state(1:12); 0;0;0;0;0;0;0]"
     }
     Block {
       BlockType		      Constant
@@ -1269,14 +1269,6 @@ Model {
       Position		      [145, 410, 175, 440]
       ZOrder		      -4
       Value		      "[trim_thrust; trim_control(1); trim_control(2); trim_control(3)]"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant2"
-      SID		      "65"
-      Position		      [340, 300, 370, 330]
-      ZOrder		      1
-      Value		      "trim_state(15)"
     }
     Block {
       BlockType		      Demux
@@ -1412,17 +1404,6 @@ Model {
 	  DstPort		  1
 	}
       }
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux"
-      SID		      "68"
-      Ports		      [2, 1]
-      Position		      [400, 271, 405, 309]
-      ZOrder		      3
-      ShowName		      off
-      Inputs		      "2"
-      DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
@@ -1674,7 +1655,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"rad2deg"
-	Location		[-1827, -203, -589, 562]
+	Location		[-1584, -203, -346, 562]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2343,34 +2324,18 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      36
-      SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [9, 0; 0, 10]
-      DstBlock		      "Mux"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      37
-      SrcBlock		      "Constant2"
-      SrcPort		      1
-      Points		      [9, 0; 0, -15]
-      DstBlock		      "Mux"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      38
-      SrcBlock		      "Mux"
-      SrcPort		      1
-      DstBlock		      "rad2deg"
-      DstPort		      1
-    }
-    Line {
       ZOrder		      40
       SrcBlock		      "Demux"
       SrcPort		      19
       Points		      [143, 0; 0, 23; 127, 0]
       DstBlock		      "a_n\n"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      41
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      DstBlock		      "rad2deg"
       DstPort		      1
     }
     Annotation {

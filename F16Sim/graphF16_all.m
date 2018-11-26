@@ -22,13 +22,13 @@ lofiLTIID = fopen(lofi_LTI_file);
 hifiLTIID = fopen(hifi_LTI_file);
 
 if (lofiID > 0)
-    [time_lo, npos_lo, epos_lo, alt_lo, phi_lo, theta_lo, psi_lo, vel_lo, alpha_lo, sideslip_lo, roll_lo, pitch_lo, yaw_lo, nx_lo, ny_lo, nz_lo, mach_lo, qbar_lo, ps_lo, a_z_lo, thrust_lo, a_z_lo, ele_lo, ail_lo, rud_lo] = textread(lofi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_lo, npos_lo, epos_lo, alt_lo, phi_lo, theta_lo, psi_lo, vel_lo, alpha_lo, sideslip_lo, roll_lo, pitch_lo, yaw_lo, nx_lo, ny_lo, nz_lo, mach_lo, qbar_lo, ps_lo, a_z_lo, thrust_lo, ele_lo, ail_lo, rud_lo] = textread(lofi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
     time_lo = 0; npos_lo = 0; epos_lo = 0; alt_lo = 0; phi_lo= 0; theta_lo= 0; psi_lo= 0; vel_lo= 0; alpha_lo= 0; sideslip_lo= 0; roll_lo= 0; pitch_lo= 0; yaw_lo= 0; nx_lo= 0; ny_lo= 0; nz_lo= 0; mach_lo= 0; qbar_lo= 0; ps_lo= 0; a_z_lo = 0; thrust_lo= 0; ele_lo= 0; ail_lo= 0; rud_lo= 0; 
 end
 
 if (hifiID > 0)
-    [time_hi, npos_hi, epos_hi, alt_hi, phi_hi, theta_hi, psi_hi, vel_hi, alpha_hi, sideslip_hi, roll_hi, pitch_hi, yaw_hi, nx_hi, ny_hi, nz_hi, mach_hi, qbar_hi, ps_hi, a_z_hi, thrust_hi, ele_hi, ail_hi, rud_hi] = textread(hifi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_hi, npos_hi, epos_hi, alt_hi, phi_hi, theta_hi, psi_hi, vel_hi, alpha_hi, sideslip_hi, roll_hi, pitch_hi, yaw_hi, nx_hi, ny_hi, nz_hi, mach_hi, qbar_hi, ps_hi, a_z_hi, thrust_hi, ele_hi, ail_hi, rud_hi] = textread(hifi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
     time_hi = 0; npos_hi = 0; epos_hi = 0; alt_hi = 0; phi_hi= 0; theta_hi= 0; psi_hi= 0; vel_hi= 0; alpha_hi= 0; sideslip_hi= 0; roll_hi= 0; pitch_hi= 0; yaw_hi= 0; nx_hi= 0; ny_hi= 0; nz_hi= 0; mach_hi= 0; qbar_hi= 0; ps_hi= 0; a_z_hi = 0; thrust_hi= 0; ele_hi= 0; ail_hi= 0; rud_hi= 0; 
 end

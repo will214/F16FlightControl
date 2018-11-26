@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.82"
+    ComputedModelVersion    "1.83"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -78,7 +78,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "36"
-	  Extents		  [1200.0, 480.0]
+	  Extents		  [1200.0, 589.0]
 	  ZoomFactor		  [1.5]
 	  Offset		  [-239.58554572271379, 58.741887905604642]
 	}
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 11:33:44 2018"
-  RTWModifiedTimeStamp	  465046319
-  ModelVersionFormat	  "1.%<AutoIncrement:82>"
+  LastModifiedDate	  "Sun Nov 25 18:17:24 2018"
+  RTWModifiedTimeStamp	  465070640
+  ModelVersionFormat	  "1.%<AutoIncrement:83>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1313,9 +1313,9 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "8"
-      Position		      [340, 255, 370, 285]
+      Position		      [350, 275, 380, 305]
       ZOrder		      -3
-      Value		      "trim_state"
+      Value		      "[trim_state(1:12); 0;0;0;0;0;0;0]"
     }
     Block {
       BlockType		      Constant
@@ -1324,14 +1324,6 @@ Model {
       Position		      [145, 410, 175, 440]
       ZOrder		      -4
       Value		      "[trim_thrust; trim_control(1); trim_control(2); trim_control(3)]"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant2"
-      SID		      "65"
-      Position		      [340, 300, 370, 330]
-      ZOrder		      1
-      Value		      "trim_state(15)"
     }
     Block {
       BlockType		      Demux
@@ -1521,17 +1513,6 @@ Model {
 	  DstPort		  1
 	}
       }
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux"
-      SID		      "68"
-      Ports		      [2, 1]
-      Position		      [400, 271, 405, 309]
-      ZOrder		      3
-      ShowName		      off
-      Inputs		      "2"
-      DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
@@ -1838,7 +1819,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"rad2deg"
-	Location		[-1862, -128, -624, 528]
+	Location		[-1827, -203, -589, 562]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2507,34 +2488,18 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      36
-      SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [9, 0; 0, 10]
-      DstBlock		      "Mux"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      37
-      SrcBlock		      "Constant2"
-      SrcPort		      1
-      Points		      [9, 0; 0, -15]
-      DstBlock		      "Mux"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      38
-      SrcBlock		      "Mux"
-      SrcPort		      1
-      DstBlock		      "rad2deg"
-      DstPort		      1
-    }
-    Line {
       ZOrder		      40
       SrcBlock		      "Demux"
       SrcPort		      19
       Points		      [143, 0; 0, 23; 127, 0]
       DstBlock		      "a_n\n"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      41
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      DstBlock		      "rad2deg"
       DstPort		      1
     }
     Annotation {
