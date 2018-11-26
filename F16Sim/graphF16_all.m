@@ -22,27 +22,27 @@ lofiLTIID = fopen(lofi_LTI_file);
 hifiLTIID = fopen(hifi_LTI_file);
 
 if (lofiID > 0)
-    [time_lo, npos_lo, epos_lo, alt_lo, phi_lo, theta_lo, psi_lo, vel_lo, alpha_lo, sideslip_lo, roll_lo, pitch_lo, yaw_lo, nx_lo, ny_lo, nz_lo, mach_lo, qbar_lo, ps_lo, a_z_lo, thrust_lo, ele_lo, ail_lo, rud_lo] = textread(lofi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_lo, npos_lo, epos_lo, alt_lo, phi_lo, theta_lo, psi_lo, vel_lo, alpha_lo, sideslip_lo, roll_lo, pitch_lo, yaw_lo, nx_lo, ny_lo, nz_lo, mach_lo, qbar_lo, ps_lo, thrust_lo, ele_lo, ail_lo, rud_lo] = textread(lofi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
-    time_lo = 0; npos_lo = 0; epos_lo = 0; alt_lo = 0; phi_lo= 0; theta_lo= 0; psi_lo= 0; vel_lo= 0; alpha_lo= 0; sideslip_lo= 0; roll_lo= 0; pitch_lo= 0; yaw_lo= 0; nx_lo= 0; ny_lo= 0; nz_lo= 0; mach_lo= 0; qbar_lo= 0; ps_lo= 0; a_z_lo = 0; thrust_lo= 0; ele_lo= 0; ail_lo= 0; rud_lo= 0; 
+    time_lo = 0; npos_lo = 0; epos_lo = 0; alt_lo = 0; phi_lo= 0; theta_lo= 0; psi_lo= 0; vel_lo= 0; alpha_lo= 0; sideslip_lo= 0; roll_lo= 0; pitch_lo= 0; yaw_lo= 0; nx_lo= 0; ny_lo= 0; nz_lo= 0; mach_lo= 0; qbar_lo= 0; ps_lo= 0; thrust_lo= 0; ele_lo= 0; ail_lo= 0; rud_lo= 0; 
 end
 
 if (hifiID > 0)
-    [time_hi, npos_hi, epos_hi, alt_hi, phi_hi, theta_hi, psi_hi, vel_hi, alpha_hi, sideslip_hi, roll_hi, pitch_hi, yaw_hi, nx_hi, ny_hi, nz_hi, mach_hi, qbar_hi, ps_hi, a_z_hi, thrust_hi, ele_hi, ail_hi, rud_hi] = textread(hifi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_hi, npos_hi, epos_hi, alt_hi, phi_hi, theta_hi, psi_hi, vel_hi, alpha_hi, sideslip_hi, roll_hi, pitch_hi, yaw_hi, nx_hi, ny_hi, nz_hi, mach_hi, qbar_hi, ps_hi, thrust_hi, ele_hi, ail_hi, rud_hi] = textread(hifi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
-    time_hi = 0; npos_hi = 0; epos_hi = 0; alt_hi = 0; phi_hi= 0; theta_hi= 0; psi_hi= 0; vel_hi= 0; alpha_hi= 0; sideslip_hi= 0; roll_hi= 0; pitch_hi= 0; yaw_hi= 0; nx_hi= 0; ny_hi= 0; nz_hi= 0; mach_hi= 0; qbar_hi= 0; ps_hi= 0; a_z_hi = 0; thrust_hi= 0; ele_hi= 0; ail_hi= 0; rud_hi= 0; 
+    time_hi = 0; npos_hi = 0; epos_hi = 0; alt_hi = 0; phi_hi= 0; theta_hi= 0; psi_hi= 0; vel_hi= 0; alpha_hi= 0; sideslip_hi= 0; roll_hi= 0; pitch_hi= 0; yaw_hi= 0; nx_hi= 0; ny_hi= 0; nz_hi= 0; mach_hi= 0; qbar_hi= 0; ps_hi= 0; thrust_hi= 0; ele_hi= 0; ail_hi= 0; rud_hi= 0; 
 end
 
 if (lofiLTIID > 0)
-    [time_lo_LTI, npos_lo_LTI, epos_lo_LTI, alt_lo_LTI, phi_lo_LTI, theta_lo_LTI, psi_lo_LTI, vel_lo_LTI, alpha_lo_LTI, sideslip_lo_LTI, roll_lo_LTI, pitch_lo_LTI, yaw_lo_LTI, nx_lo_LTI, ny_lo_LTI, nz_lo_LTI, mach_lo_LTI, qbar_lo_LTI, ps_lo_LTI, a_z_lo_LTI, thrust_lo_LTI, ele_lo_LTI, ail_lo_LTI, rud_lo_LTI] = textread(lofi_LTI_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_lo_LTI, npos_lo_LTI, epos_lo_LTI, alt_lo_LTI, phi_lo_LTI, theta_lo_LTI, psi_lo_LTI, vel_lo_LTI, alpha_lo_LTI, sideslip_lo_LTI, roll_lo_LTI, pitch_lo_LTI, yaw_lo_LTI, nx_lo_LTI, ny_lo_LTI, nz_lo_LTI, mach_lo_LTI, qbar_lo_LTI, ps_lo_LTI, thrust_lo_LTI, ele_lo_LTI, ail_lo_LTI, rud_lo_LTI] = textread(lofi_LTI_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
-    time_lo_LTI = 0; npos_lo_LTI = 0; epos_lo_LTI = 0; alt_lo_LTI = 0; phi_lo_LTI= 0; theta_lo_LTI= 0; psi_lo_LTI= 0; vel_lo_LTI= 0; alpha_lo_LTI= 0; sideslip_lo_LTI= 0; roll_lo_LTI= 0; pitch_lo_LTI= 0; yaw_lo_LTI= 0; nx_lo_LTI= 0; ny_lo_LTI= 0; nz_lo_LTI= 0; mach_lo_LTI= 0; qbar_lo_LTI= 0; ps_lo_LTI= 0; a_z_lo_LTI = 0; thrust_lo_LTI= 0; ele_lo_LTI= 0; ail_lo_LTI= 0; rud_lo_LTI= 0; 
+    time_lo_LTI = 0; npos_lo_LTI = 0; epos_lo_LTI = 0; alt_lo_LTI = 0; phi_lo_LTI= 0; theta_lo_LTI= 0; psi_lo_LTI= 0; vel_lo_LTI= 0; alpha_lo_LTI= 0; sideslip_lo_LTI= 0; roll_lo_LTI= 0; pitch_lo_LTI= 0; yaw_lo_LTI= 0; nx_lo_LTI= 0; ny_lo_LTI= 0; nz_lo_LTI= 0; mach_lo_LTI= 0; qbar_lo_LTI= 0; ps_lo_LTI= 0; thrust_lo_LTI= 0; ele_lo_LTI= 0; ail_lo_LTI= 0; rud_lo_LTI= 0; 
 end
 
 if (hifiLTIID > 0)
-    [time_hi_LTI, npos_hi_LTI, epos_hi_LTI, alt_hi_LTI, phi_hi_LTI, theta_hi_LTI, psi_hi_LTI, vel_hi_LTI, alpha_hi_LTI, sideslip_hi_LTI, roll_hi_LTI, pitch_hi_LTI, yaw_hi_LTI, nx_hi_LTI, ny_hi_LTI, nz_hi_LTI, mach_hi_LTI, qbar_hi_LTI, ps_hi_LTI, a_z_hi_LTI, thrust_hi_LTI, ele_hi_LTI, ail_hi_LTI, rud_hi_LTI] = textread(hifi_LTI_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
+    [time_hi_LTI, npos_hi_LTI, epos_hi_LTI, alt_hi_LTI, phi_hi_LTI, theta_hi_LTI, psi_hi_LTI, vel_hi_LTI, alpha_hi_LTI, sideslip_hi_LTI, roll_hi_LTI, pitch_hi_LTI, yaw_hi_LTI, nx_hi_LTI, ny_hi_LTI, nz_hi_LTI, mach_hi_LTI, qbar_hi_LTI, ps_hi_LTI, thrust_hi_LTI, ele_hi_LTI, ail_hi_LTI, rud_hi_LTI] = textread(hifi_LTI_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
 else
-    time_hi_LTI = 0; npos_hi_LTI = 0; epos_hi_LTI = 0; alt_hi_LTI = 0; phi_hi_LTI= 0; theta_hi_LTI= 0; psi_hi_LTI= 0; vel_hi_LTI= 0; alpha_hi_LTI= 0; sideslip_hi_LTI= 0; roll_hi_LTI= 0; pitch_hi_LTI= 0; yaw_hi_LTI= 0; nx_hi_LTI= 0; ny_hi_LTI= 0; nz_hi_LTI= 0; mach_hi_LTI= 0; qbar_hi_LTI= 0; ps_hi_LTI= 0; a_z_hi_LTI = 0; thrust_hi_LTI= 0; ele_hi_LTI= 0; ail_hi_LTI= 0; rud_hi_LTI= 0; 
+    time_hi_LTI = 0; npos_hi_LTI = 0; epos_hi_LTI = 0; alt_hi_LTI = 0; phi_hi_LTI= 0; theta_hi_LTI= 0; psi_hi_LTI= 0; vel_hi_LTI= 0; alpha_hi_LTI= 0; sideslip_hi_LTI= 0; roll_hi_LTI= 0; pitch_hi_LTI= 0; yaw_hi_LTI= 0; nx_hi_LTI= 0; ny_hi_LTI= 0; nz_hi_LTI= 0; mach_hi_LTI= 0; qbar_hi_LTI= 0; ps_hi_LTI= 0; thrust_hi_LTI= 0; ele_hi_LTI= 0; ail_hi_LTI= 0; rud_hi_LTI= 0; 
 end
 
 title_string = sprintf('Trim: Vel. = %.1f \n Alt. = %.1f', velocity, altitude);
@@ -206,13 +206,6 @@ subplot(224)
 plot(time_lo, rud_lo,'-', time_hi, rud_hi,'-.', time_lo_LTI, rud_lo_LTI, ':', time_hi_LTI, rud_hi_LTI,'--');
 ylabel('Del Rudder');
 xlabel('Time (sec)');
-title(title_string);
-
-% Figure 5
-figure(5);
-plot(time_lo, a_z_lo, '-', time_hi, a_z_hi, '-.', time_lo_LTI, a_z_lo_LTI, ':', time_hi_LTI, a_z_hi_LTI, '--');
-xlabel('Time (sec)');
-ylabel('Acceleration z [-]')
 title(title_string);
 
 % alt_min_hi = min(alt_hi) - 2000;
