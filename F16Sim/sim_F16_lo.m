@@ -21,4 +21,3 @@ TFinal = 20;
 
 % initial states are already set in the model
 sim('SS_F16_Block_lo', [TStart TFinal]);
-graphF16_all;

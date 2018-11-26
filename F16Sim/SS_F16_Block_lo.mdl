@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.84"
+    ComputedModelVersion    "1.85"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -44,7 +44,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1584.0, -203.0, 1238.0, 765.0]
+      Location		      [-1779.0, -167.0, 1238.0, 750.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -69,7 +69,7 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1200.0, 589.0]
+	  Extents		  [1200.0, 574.0]
 	  ZoomFactor		  [1.25]
 	  Offset		  [5.470678667432253, -4.9409817525070707]
 	}
@@ -102,7 +102,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABrAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAATWAAACiAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAATWAAACeQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPg/////wAAAAAAAAAA/"
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 18:18:21 2018"
-  RTWModifiedTimeStamp	  465070700
-  ModelVersionFormat	  "1.%<AutoIncrement:84>"
+  LastModifiedDate	  "Mon Nov 26 18:45:30 2018"
+  RTWModifiedTimeStamp	  465158727
+  ModelVersionFormat	  "1.%<AutoIncrement:85>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1088,6 +1088,13 @@ Model {
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
     }
     Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      StateSpace
       A			      "1"
       B			      "1"
@@ -1176,7 +1183,7 @@ Model {
   }
   System {
     Name		    "SS_F16_Block_lo"
-    Location		    [-1584, -203, -346, 562]
+    Location		    [-1779, -167, -541, 583]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1193,7 +1200,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "74"
+    SIDHighWatermark	    "75"
     Block {
       BlockType		      SubSystem
       Name		      "Aileron Disturbance"
@@ -1363,7 +1370,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Elevator Disturbance1"
-	Location		[-1584, -203, -346, 562]
+	Location		[-1779, -167, -541, 583]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1385,7 +1392,6 @@ Model {
 	  SID			  "71"
 	  Position		  [-5, 70, 25, 100]
 	  ZOrder		  1
-	  After			  "-1"
 	  SampleTime		  "0"
 	}
 	Block {
@@ -1556,6 +1562,19 @@ Model {
       ",StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
       NumInputPorts	      "3"
       Floating		      off
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector"
+      SID		      "75"
+      Ports		      [1, 1]
+      Position		      [486, 115, 524, 155]
+      ZOrder		      7
+      BlockRotation	      270
+      InputPortWidth	      "19"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[1:18]"
+      OutputSizes	      "1"
     }
     Block {
       BlockType		      StateSpace
@@ -2250,8 +2269,7 @@ Model {
       }
       Branch {
 	ZOrder			23
-	Points			[0, -120]
-	DstBlock		"To Workspace2"
+	DstBlock		"Selector"
 	DstPort			1
       }
     }
@@ -2336,6 +2354,14 @@ Model {
       SrcBlock		      "Constant"
       SrcPort		      1
       DstBlock		      "rad2deg"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      42
+      SrcBlock		      "Selector"
+      SrcPort		      1
+      Points		      [0, -20]
+      DstBlock		      "To Workspace2"
       DstPort		      1
     }
     Annotation {
