@@ -5,13 +5,12 @@
 %     direction matrices.  These system matrices 
 %     will be used to create pole-zero mapping
 %     and the bode plots of each to each control
-%     input
-
+%     input.
 % Author: Richard S. Russell
 % 
 %================================================
 clear;
- 
+
 addpath obsmutoolsfornewermatlabversions -END % required for some new MATLAB versions
 
 global fi_flag_Simulink
