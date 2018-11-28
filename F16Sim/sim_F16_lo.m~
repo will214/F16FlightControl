@@ -18,8 +18,8 @@ load_system('Lin_F16Block_lo');
 
 deltaT = 0.01;
 TStart = 0; 
-TFinal = 1;
-time = linspace(0, TFinal, TFinal/deltaT + 1);
+TFinal = 5;
+time = linspace(0, 5, 5/deltaT + 1);
 thrust = 0;  % Since this a linear model
 accelerometer_pos = [0, 5, 5.9, 6, 7, 15];
 tf_list = {};
@@ -32,19 +32,14 @@ for x_a = accelerometer_pos
     % initial states are already set in the model
     system = ss(A, B, C, D);
     H_mimo = tf(system);
-    H_an_el = minreal(H_mimo(19, 2));
+    H_an_el = H_mimo(2, 19);
     tf_list(end + 1) = {H_an_el};
     sim('SS_F16_Block_lo', [TStart ,TFinal]);
     % output from simulink model
     acc_data(end + 1, :) = {sprintf('x_a = %.1f', x_a), a_n_data.Data};
 end
 
-zeros_tfs = zeros(6, 4);
-for i = 1:length(tf_list)
-    zeros_tfs(i, :) = zero(tf_list{i});
-end
 plot_acc(time, acc_data)
-
 
 
 function [] = plot_acc(time, data_cell)

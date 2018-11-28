@@ -40,7 +40,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.146"
+    ComputedModelVersion    "1.149"
     NumModelReferences	    0
     NumTestPointedSignals   5
     TestPointedSignal {
@@ -93,8 +93,6 @@ Model {
   DiagnosticSuppressor	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering "3751009d-1ef9-4209-ac4d-0382ac61319a,47dae349-736d-4eb0-a341-24b18976b090,3f464a83-68a8"
-  "-4c86-8a43-d5bdbd0606c4,26ebb13d-b3a3-4491-8361-bfc3f4fc3115,ef2fde50-04bd-4c56-89ff-2e03a98dcbde"
   SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -115,7 +113,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1920.0, -257.0, 1226.0, 989.0]
+      Location		      [-1920.0, -257.0, 1285.0, 1057.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -134,15 +132,15 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		3
+	Dimension		4
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1188.0, 813.0]
-	  ZoomFactor		  [0.95784896848026624]
-	  Offset		  [-174.61608297413795, -296.88840921336208]
+	  Extents		  [1247.0, 881.0]
+	  ZoomFactor		  [1.5261281853805022]
+	  Offset		  [190.93548020320179, -99.669847134493466]
 	}
 	Object {
 	  $ObjectID		  6
@@ -155,18 +153,27 @@ Model {
 	}
 	Object {
 	  $ObjectID		  7
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "54"
-	  Extents		  [1188.0, 813.0]
+	  Extents		  [1188.0, 551.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-339.0, -335.875]
+	}
+	Object {
+	  $ObjectID		  8
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10"
+	  Extents		  [1188.0, 551.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-169.07421875, -55.5]
 	}
 	PropName		"EditorsInfo"
       }
       Object {
 	$PropName		"DockComponentsInfo"
-	$ObjectID		8
+	$ObjectID		9
 	$ClassName		"Simulink.DockComponentInfo"
 	Type			"GLUE2:PropertyInspector"
 	ID			"Property Inspector"
@@ -182,7 +189,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABrAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAATKAAADaAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAUFAAADrAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPg/////wAAAAAAAAAA/"
@@ -196,9 +203,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 11:59:13 2018"
-  RTWModifiedTimeStamp	  465047910
-  ModelVersionFormat	  "1.%<AutoIncrement:146>"
+  LastModifiedDate	  "Wed Nov 28 19:14:14 2018"
+  RTWModifiedTimeStamp	  465332203
+  ModelVersionFormat	  "1.%<AutoIncrement:149>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -253,7 +260,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    9
+    $ObjectID		    10
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "LIN_F16Block_lo"
     Array {
@@ -271,7 +278,7 @@ Model {
   }
   Object {
     $PropName		    "InstrumentedSignals"
-    $ObjectID		    10
+    $ObjectID		    11
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
@@ -422,7 +429,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      11
+      $ObjectID		      12
       Version		      "1.18.1"
       DisabledProps	      []
       Description	      ""
@@ -430,7 +437,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  12
+	  $ObjectID		  13
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -471,7 +478,7 @@ Model {
 	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -512,7 +519,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -579,7 +586,7 @@ Model {
 	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -698,7 +705,7 @@ Model {
 	  UnderSpecifiedDimensionMsg "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -746,7 +753,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -765,7 +772,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  ""
@@ -798,7 +805,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "1.18.1"
 	  Array {
 	    Type		    "Cell"
@@ -885,7 +892,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      20
+	      $ObjectID		      21
 	      Version		      "1.18.1"
 	      Array {
 		Type			"Cell"
@@ -973,7 +980,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      21
+	      $ObjectID		      22
 	      Version		      "1.18.1"
 	      Array {
 		Type			"Cell"
@@ -1079,7 +1086,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  22
+	  $ObjectID		  23
 	  Version		  "1.18.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1129,11 +1136,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    11
+    $ObjectID		    12
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    23
+    $ObjectID		    24
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1142,7 +1149,6 @@ Model {
     AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
-  WSMdlFileData		  "DataTag0"
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -1341,6 +1347,10 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Scope
+      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+    }
+    Block {
       BlockType		      Selector
       NumberOfDimensions      "1"
       IndexMode		      "One-based"
@@ -1423,8 +1433,8 @@ Model {
   }
   System {
     Name		    "LIN_F16Block_lo"
-    Location		    [-1920, -257, -694, 732]
-    Open		    on
+    Location		    [-1920, -257, -635, 800]
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1438,9 +1448,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "96"
+    ZoomFactor		    "153"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "110"
+    SIDHighWatermark	    "111"
     Block {
       BlockType		      Inport
       Name		      "In1"
@@ -1500,8 +1510,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Aileron\nActuator"
-	Location		[-1920, -257, -694, 732]
-	Open			on
+	Location		[-1620, -147, -394, 580]
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1768,7 +1778,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Leading Edge Flap"
-	Location		[36, 44, 929, 664]
+	Location		[-1620, -147, -394, 580]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2355,7 +2365,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [365, 325, 395, 355]
 	  ZOrder		  -8
-	  InitialCondition	  "-trim_state_lin(8)*180/pi"
+	  InitialCondition	  "-trim_state(8)*180/pi"
 	}
 	Block {
 	  BlockType		  Sum
@@ -2551,7 +2561,7 @@ Model {
 	  ZOrder		  13
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
-	  Points		  [0, 0; 5, 0]
+	  Points		  [5, 0]
 	  Branch {
 	    ZOrder		    14
 	    Points		    [0, 45; -200, 0]
@@ -2651,11 +2661,11 @@ Model {
       BlockType		      Mux
       Name		      "Mux"
       SID		      "98"
-      Ports		      [2, 1]
+      Ports		      [3, 1]
       Position		      [880, 46, 885, 84]
       ZOrder		      32
       ShowName		      off
-      Inputs		      "2"
+      Inputs		      "3"
       DisplayOption	      "bar"
       Port {
 	PortNumber		1
@@ -2821,6 +2831,33 @@ Model {
       }
     }
     Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "111"
+      Ports		      [1]
+      Position		      [655, 299, 685, 331]
+      ZOrder		      34
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('Mi"
+      "nYLimReal','-0.00000000000000062','MaxYLimReal','0.00000000000000007','YLabelReal','','MinYLimMag','0.0000000000"
+      "0000000','MaxYLimMag','0.00000000000000062','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',fa"
+      "lse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 "
+      "1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568627450"
+      "98 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098"
+      "039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},"
+      "'NumLines',1,'LineNames',{{'q_dot'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLi"
+      "mReal','-0.00000000000000062','MaxYLimReal','0.00000000000000007','YLabelReal','','MinYLimMag','0.00000000000000"
+      "000','MaxYLimMag','0.00000000000000062','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,"
+      "'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745"
+      "098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0"
+      ".274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.07450980392"
+      "15686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Me"
+      "asurements',true,'Version','2018b')),'Version','2018b')"
+      NumInputPorts	      "1"
+      Floating		      off
+    }
+    Block {
       BlockType		      Selector
       Name		      "Selector"
       SID		      "101"
@@ -2843,6 +2880,10 @@ Model {
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[11]"
       OutputSizes	      "1"
+      Port {
+	PortNumber		1
+	Name			"q_dot"
+      }
     }
     Block {
       BlockType		      Sum
@@ -2870,8 +2911,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Thrust\nModel"
-	Location		[-1920, -257, -694, 732]
-	Open			on
+	Location		[-1620, -147, -394, 580]
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -3538,7 +3579,7 @@ Model {
       ZOrder		      64
       SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [28, 0; 0, -140]
+      Points		      [28, 0; 0, -150]
       DstBlock		      "Mux"
       DstPort		      2
     }
@@ -3558,11 +3599,33 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "q_dot"
       ZOrder		      72
       SrcBlock		      "Selector1"
       SrcPort		      1
-      DstBlock		      "Product"
-      DstPort		      2
+      Points		      [56, 0]
+      Branch {
+	ZOrder			101
+	Points			[0, 95]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			100
+	Labels			[1, 1]
+	Points			[88, 0]
+	Branch {
+	  ZOrder		  103
+	  Points		  [0, -145]
+	  DstBlock		  "Mux"
+	  DstPort		  3
+	}
+	Branch {
+	  ZOrder		  102
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+      }
     }
     Line {
       ZOrder		      31
@@ -3599,8 +3662,9 @@ Model {
     Annotation {
       SID		      "109"
       Name		      "Normal acceleration a_n"
-      Position		      [480, 118, 830, 277]
+      Position		      [480, 113, 840, 277]
       InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      on
       FixedWidth	      on
       HorizontalAlignment     "left"
       VerticalAlignment	      "top"
@@ -3608,7 +3672,7 @@ Model {
       BackgroundColor	      "[0.901961, 0.901961, 1.000000]"
       DropShadow	      on
       AnnotationType	      "area_annotation"
-      ZOrder		      14
+      ZOrder		      16
       FontSize		      12
     }
     Annotation {
@@ -3645,14 +3709,5 @@ Model {
       VerticalAlignment	      "top"
       ZOrder		      -1
     }
-  }
-}
-MatData {
-  NumRecords		  1
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    P     8    (     @         %    \"     $    !     0         %  0 !@    $    ,    3F%M90"
-    "  5F%L=64       X    P    !@    @    $          4    (     0    ,    !         !   P!X7V$ #@   #@    &    \"     8"
-    "         !0    @    !     0    $         \"0    @               "
   }
 }

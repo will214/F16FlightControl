@@ -1,3 +1,4 @@
+function [] = test_an_sim()
 clear all;
 altitude = 15000;
 velocity = 500;
@@ -18,12 +19,14 @@ load_system('Lin_F16Block_lo');
 
 deltaT = 0.01;
 TStart = 0; 
-TFinal = 1;
-time = linspace(0, TFinal, TFinal/deltaT + 1);
+TFinal = 5;
+time = linspace(0, 5, 5/deltaT + 1);
+u = -1 * ones(size(t));
 thrust = 0;  % Since this a linear model
 accelerometer_pos = [0, 5, 5.9, 6, 7, 15];
 tf_list = {};
 acc_data = {};
+acc_data_tf = {};
 
 for x_a = accelerometer_pos
 
@@ -32,38 +35,12 @@ for x_a = accelerometer_pos
     % initial states are already set in the model
     system = ss(A, B, C, D);
     H_mimo = tf(system);
-    H_an_el = minreal(H_mimo(19, 2));
-    tf_list(end + 1) = {H_an_el};
+    H_an_el = H_mimo(2, 19);
+    acc_data_tf(end + 1) = lsim(H_an_el, u, time);
     sim('SS_F16_Block_lo', [TStart ,TFinal]);
     % output from simulink model
     acc_data(end + 1, :) = {sprintf('x_a = %.1f', x_a), a_n_data.Data};
 end
 
-zeros_tfs = zeros(6, 4);
-for i = 1:length(tf_list)
-    zeros_tfs(i, :) = zero(tf_list{i});
 end
-plot_acc(time, acc_data)
 
-
-
-function [] = plot_acc(time, data_cell)
-%% change properties
-size_data = size(data_cell);
-number_datasets = size_data(1);
-figure;
-for i = 1:number_datasets
-    plot(time, data_cell{i, 2}, 'Linewidth', 2);
-    hold on;
-end
-xlabel('Time, t [s]');
-ylabel('Normal accelration [m/s^2]');
-title('Normal acceleration for different accelerometer positions')
-
-legend_list = {};
-for i = 1:number_datasets
-    legend_list(end + 1) = {data_cell{i, 1}};
-end
-legend(legend_list);
-saveas(gcf, 'an_changing_xa.png');
-end
