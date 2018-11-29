@@ -11,15 +11,17 @@ surface2 = 'ail_';
 surface3 = 'rud_';
 
 lofi_data_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'lofi', altitude, velocity);
-hifi_data_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'hifi', altitude, velocity);
+% hifi_data_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'hifi', altitude, velocity);
 lofi_LTI_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f_LTI.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'lofi', altitude, velocity);
-hifi_LTI_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f_LTI.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'hifi', altitude, velocity);
+% hifi_LTI_file = sprintf('%s%.3f%s%.3f%s%.3f_%smodel_alt%0.f_vel%.0f_LTI.txt', surface1, ElevatorDis, surface2, AileronDis, surface3, RudderDis, 'hifi', altitude, velocity);
 
 
 lofiID = fopen(lofi_data_file);
-hifiID = fopen(hifi_data_file);
+% hifiID = fopen(hifi_data_file);
+hifiID = 0;
 lofiLTIID = fopen(lofi_LTI_file);
-hifiLTIID = fopen(hifi_LTI_file);
+% hifiLTIID = fopen(hifi_LTI_file);
+hifiLTIID = 0;
 
 if (lofiID > 0)
     [time_lo, npos_lo, epos_lo, alt_lo, phi_lo, theta_lo, psi_lo, vel_lo, alpha_lo, sideslip_lo, roll_lo, pitch_lo, yaw_lo, nx_lo, ny_lo, nz_lo, mach_lo, qbar_lo, ps_lo, thrust_lo, ele_lo, ail_lo, rud_lo] = textread(lofi_data_file,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'delimiter', ',' , 'headerlines',3);
