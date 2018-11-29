@@ -71,7 +71,10 @@ eig_la = eig(A_ac_la);
 l3=eig_lo(3);
 l4=eig_lo(4);
 o_sp = sqrt(real(l3)^2+imag(l4)^2); %natural frequency
-d_sp = -real(l3)/o_sp%damping ratio
+d_sp = -real(l3)/o_sp; %damping ratio
+P_sp = 2*pi/imag(l3);   %period
+T = lo
+
 %Phugoid
 l1=eig_lo(1);
 l2=eig_lo(2);
