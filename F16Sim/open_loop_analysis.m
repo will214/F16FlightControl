@@ -64,7 +64,14 @@ D_ac_la = C_lateral_lo([1,4,5,6],[8,9]);
 
 %Eigenvalues
 
-eig_lo = eig(A_ac_lo) 
-eig_la = eig(A_ac_la)
+eig_lo = eig(A_ac_lo);
+eig_la = eig(A_ac_la);
 
-%
+%Short Period
+l3=eig_lo(3);
+l4=eig_lo(4);
+o_sp = sqrt(real(l3)^2+imag(l4)^2); %natural frequency
+d_sp = -real(l3)/o_sp%damping ratio
+%Phugoid
+l1=eig_lo(1);
+l2=eig_lo(2);
