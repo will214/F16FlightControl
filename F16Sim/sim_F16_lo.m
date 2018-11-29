@@ -16,12 +16,13 @@ load_system('Lin_F16Block_lo');
 
 % params for linear model
 
-deltaT = 0.01;
+deltaT = 0.001;
 TStart = 0; 
-TFinal = 1;
+TFinal = 5;
 time = linspace(0, TFinal, TFinal/deltaT + 1);
 thrust = 0;  % Since this a linear model
-accelerometer_pos = [0, 5, 5.9, 6, 7, 15];
+accelerometer_pos = [0, 5, 5.9, 6, 7, 15] * 0.3048;
+% accelerometer_pos = [5];
 tf_list = {};
 acc_data = {};
 
