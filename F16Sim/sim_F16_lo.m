@@ -12,13 +12,12 @@ rudder = -0.01;             % rudder angle, degrees
 aileron = 0.01;            % aileron, degrees
 
 [trim_state, trim_thrust, trim_control, dLEF, UX] = trim_steady_state(thrust, elevator, alpha, aileron, rudder, velocity, altitude);
-load_system('Lin_F16Block');
+load_system('LIN_F16Block');
 
 % params for linear model
-
 deltaT = 0.001;
 TStart = 0; 
-TFinal = 5;
+TFinal = 1;
 time = linspace(0, TFinal, TFinal/deltaT + 1);
 thrust = 0;  % Since this a linear model
 accelerometer_pos = [0, 5, 5.9, 6, 7, 15] * 0.3048;
@@ -45,7 +44,6 @@ for i = 1:length(tf_list)
     zeros_tfs(i, :) = zero(tf_list{i});
 end
 plot_acc(time, acc_data)
-
 
 
 function [] = plot_acc(time, data_cell)

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.82"
+    ComputedModelVersion    "1.87"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -44,7 +44,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1827.0, -203.0, 1238.0, 765.0]
+      Location		      [-4.0, 24.0, 1247.0, 726.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -69,16 +69,16 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1200.0, 589.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [5.470678667432253, -4.9409817525070707]
+	  Extents		  [1209.0, 550.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [219.4135358102892, 112.31616110463571]
 	}
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "36"
-	  Extents		  [1200.0, 480.0]
+	  Extents		  [1209.0, 550.0]
 	  ZoomFactor		  [1.5]
 	  Offset		  [-239.58554572271379, 58.741887905604642]
 	}
@@ -102,7 +102,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABrAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAATWAAACiAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAATfAAACYQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPg/////wAAAAAAAAAA/"
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 25 11:33:44 2018"
-  RTWModifiedTimeStamp	  465046319
-  ModelVersionFormat	  "1.%<AutoIncrement:82>"
+  LastModifiedDate	  "Thu Nov 29 16:47:30 2018"
+  RTWModifiedTimeStamp	  465410849
+  ModelVersionFormat	  "1.%<AutoIncrement:87>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1088,6 +1088,13 @@ Model {
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
     }
     Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      StateSpace
       A			      "1"
       B			      "1"
@@ -1176,7 +1183,7 @@ Model {
   }
   System {
     Name		    "SS_F16_Block"
-    Location		    [-1827, -203, -589, 562]
+    Location		    [-4, 24, 1243, 750]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1191,9 +1198,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "175"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "70"
+    SIDHighWatermark	    "76"
     Block {
       BlockType		      SubSystem
       Name		      "Aileron Disturbance"
@@ -1204,7 +1211,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Aileron Disturbance"
-	Location		[363, 399, 583, 749]
+	Location		[0, 23, 640, 749]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1221,44 +1228,12 @@ Model {
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
 	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "2"
-	  Position		  [25, 25, 55, 55]
-	  ZOrder		  -1
-	  After			  "DisAil_1"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step1"
-	  SID			  "3"
-	  Position		  [25, 70, 55, 100]
-	  ZOrder		  -2
-	  Time			  "3"
-	  After			  "DisAil_2"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step2"
-	  SID			  "4"
-	  Position		  [25, 115, 55, 145]
-	  ZOrder		  -3
-	  Time			  "5"
-	  After			  "DisAil_3"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "5"
-	  Ports			  [3, 1]
-	  Position		  [80, 75, 100, 95]
-	  ZOrder		  -4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "+++"
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "72"
+	  Position		  [60, 70, 90, 100]
+	  ZOrder		  1
+	  Value			  "0"
 	}
 	Block {
 	  BlockType		  Outport
@@ -1269,31 +1244,8 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Step1"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Step2"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Sum"
+	  ZOrder		  5
+	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  DstBlock		  "Out1"
 	  DstPort		  1
@@ -1313,9 +1265,9 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "8"
-      Position		      [340, 255, 370, 285]
+      Position		      [350, 280, 380, 310]
       ZOrder		      -3
-      Value		      "trim_state"
+      Value		      "[trim_state(1:12);0;0;0;0;0;0;0]"
     }
     Block {
       BlockType		      Constant
@@ -1324,14 +1276,6 @@ Model {
       Position		      [145, 410, 175, 440]
       ZOrder		      -4
       Value		      "[trim_thrust; trim_control(1); trim_control(2); trim_control(3)]"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant2"
-      SID		      "65"
-      Position		      [340, 300, 370, 330]
-      ZOrder		      1
-      Value		      "trim_state(15)"
     }
     Block {
       BlockType		      Demux
@@ -1426,7 +1370,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Elevator Disturbance1"
-	Location		[-1827, -203, -589, 562]
+	Location		[0, 23, 640, 749]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1441,46 +1385,16 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"114"
 	Block {
 	  BlockType		  Step
 	  Name			  "Step"
-	  SID			  "12"
-	  Position		  [25, 25, 55, 55]
-	  ZOrder		  -1
-	  After			  "DisEle_1"
+	  SID			  "71"
+	  Position		  [65, 70, 95, 100]
+	  ZOrder		  1
+	  Time			  "0"
+	  After			  "-1"
 	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step1"
-	  SID			  "13"
-	  Position		  [25, 70, 55, 100]
-	  ZOrder		  -2
-	  Time			  "3"
-	  After			  "DisEle_2"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step2"
-	  SID			  "14"
-	  Position		  [25, 115, 55, 145]
-	  ZOrder		  -3
-	  Time			  "5"
-	  After			  "DisEle_3"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "15"
-	  Ports			  [3, 1]
-	  Position		  [80, 75, 100, 95]
-	  ZOrder		  -4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "+++"
 	}
 	Block {
 	  BlockType		  Outport
@@ -1491,47 +1405,13 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Step1"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  2
+	  ZOrder		  5
 	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Step2"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Sum"
 	  SrcPort		  1
 	  DstBlock		  "Out1"
 	  DstPort		  1
 	}
       }
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux"
-      SID		      "68"
-      Ports		      [2, 1]
-      Position		      [400, 271, 405, 309]
-      ZOrder		      3
-      ShowName		      off
-      Inputs		      "2"
-      DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
@@ -1553,7 +1433,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Rudder Disturbance"
-	Location		[363, 399, 583, 749]
+	Location		[0, 23, 640, 749]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1570,44 +1450,12 @@ Model {
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
 	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "19"
-	  Position		  [25, 25, 55, 55]
-	  ZOrder		  -1
-	  After			  "DisRud_1"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step1"
-	  SID			  "20"
-	  Position		  [25, 70, 55, 100]
-	  ZOrder		  -2
-	  Time			  "1.5"
-	  After			  "DisRud_2"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step2"
-	  SID			  "21"
-	  Position		  [25, 115, 55, 145]
-	  ZOrder		  -3
-	  Time			  "2"
-	  After			  "DisRud_3"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "22"
-	  Ports			  [3, 1]
-	  Position		  [80, 75, 100, 95]
-	  ZOrder		  -4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "+++"
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "73"
+	  Position		  [65, 70, 95, 100]
+	  ZOrder		  1
+	  Value			  "0"
 	}
 	Block {
 	  BlockType		  Outport
@@ -1618,31 +1466,8 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Step1"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Step2"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Sum"
+	  ZOrder		  5
+	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  DstBlock		  "Out1"
 	  DstPort		  1
@@ -1741,6 +1566,19 @@ Model {
       Floating		      off
     }
     Block {
+      BlockType		      Selector
+      Name		      "Selector"
+      SID		      "75"
+      Ports		      [1, 1]
+      Position		      [486, 125, 524, 165]
+      ZOrder		      6
+      BlockRotation	      270
+      InputPortWidth	      "19"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[1:18]"
+      OutputSizes	      "1"
+    }
+    Block {
       BlockType		      StateSpace
       Name		      "State-Space"
       SID		      "30"
@@ -1814,6 +1652,20 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace3"
+      SID		      "76"
+      Ports		      [1]
+      Position		      [790, 395, 850, 425]
+      ZOrder		      7
+      VariableName	      "a_n_data"
+      MaxDataPoints	      "inf"
+      SaveFormat	      "Timeseries"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
+      FixptAsFi		      on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Scope
       Name		      "a_n\n"
       SID		      "70"
@@ -1833,12 +1685,12 @@ Model {
       Name		      "rad2deg"
       SID		      "36"
       Ports		      [1, 1]
-      Position		      [420, 276, 445, 304]
+      Position		      [420, 280, 445, 310]
       ZOrder		      -21
       RequestExecContextInheritance off
       System {
 	Name			"rad2deg"
-	Location		[-1862, -128, -624, 528]
+	Location		[0, 23, 1247, 749]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2433,8 +2285,7 @@ Model {
       }
       Branch {
 	ZOrder			23
-	Points			[0, -120]
-	DstBlock		"To Workspace2"
+	DstBlock		"Selector"
 	DstPort			1
       }
     }
@@ -2507,34 +2358,36 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      36
+      ZOrder		      40
+      SrcBlock		      "Demux"
+      SrcPort		      19
+      Points		      [121, 0]
+      Branch {
+	ZOrder			46
+	Points			[0, 65]
+	DstBlock		"To Workspace3"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			45
+	Points			[22, 0; 0, 23; 127, 0]
+	DstBlock		"a_n\n"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      42
       SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [9, 0; 0, 10]
-      DstBlock		      "Mux"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      37
-      SrcBlock		      "Constant2"
-      SrcPort		      1
-      Points		      [9, 0; 0, -15]
-      DstBlock		      "Mux"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      38
-      SrcBlock		      "Mux"
       SrcPort		      1
       DstBlock		      "rad2deg"
       DstPort		      1
     }
     Line {
-      ZOrder		      40
-      SrcBlock		      "Demux"
-      SrcPort		      19
-      Points		      [143, 0; 0, 23; 127, 0]
-      DstBlock		      "a_n\n"
+      ZOrder		      43
+      SrcBlock		      "Selector"
+      SrcPort		      1
+      Points		      [0, -30]
+      DstBlock		      "To Workspace2"
       DstPort		      1
     }
     Annotation {
