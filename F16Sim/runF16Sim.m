@@ -104,7 +104,6 @@ elseif dis_flag == 'n'
   surfacedef = 'none';  %do nothing
 else
   disp('Invalid Selection');
-  
 end
 disp(newline);
 disp(newline);
