@@ -11,7 +11,7 @@ alpha = 8.49;              % AOA, degrees
 rudder = -0.01;             % rudder angle, degrees
 aileron = 0.01;            % aileron, degrees
 
-[trim_state, trim_thrust, trim_control, dLEF, UX] = trim_steady_state(thrust, elevator, alpha, aileron, rudder, velocity, altitude);
+[trim_state_lin, trim_thrust_lin, trim_control_lin, dLEF, UX] = trim_steady_state(thrust, elevator, alpha, aileron, rudder, velocity, altitude);
 load_system('LIN_F16Block');
 
 % params for linear model
@@ -27,8 +27,8 @@ acc_data = {};
 
 for x_a = accelerometer_pos
 
-    [A, B, C, D] = linmod('LIN_F16Block', [trim_state; trim_thrust; trim_control; dLEF; -trim_state(8)*180/pi], ... 
-                                              [trim_thrust; trim_control]);
+    [A, B, C, D] = linmod('LIN_F16Block', [trim_state_lin; trim_thrust_lin; trim_control_lin; dLEF; -trim_state_lin(8)*180/pi], ... 
+                                              [trim_thrust_lin; trim_control_lin]);
     % initial states are already set in the model
     system = ss(A, B, C, D);
     H_mimo = tf(system);
@@ -43,6 +43,7 @@ zeros_tfs = zeros(6, 4);
 for i = 1:length(tf_list)
     zeros_tfs(i, :) = zero(tf_list{i});
 end
+
 plot_acc(time, acc_data)
 
 
