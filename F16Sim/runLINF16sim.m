@@ -203,6 +203,7 @@ elseif dis_flag == 'n'
     %do nothing
 else
     disp('Invalid Selection');
+%     break;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -271,7 +272,7 @@ end
 plot_flag = input('Plot results (y/n):  ', 's');
 
 if plot_flag == 'n'
-    
+%     break;
 else
     graphF16_all;
 end

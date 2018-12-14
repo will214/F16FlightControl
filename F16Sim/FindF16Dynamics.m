@@ -5,21 +5,24 @@
 %     direction matrices.  These system matrices 
 %     will be used to create pole-zero mapping
 %     and the bode plots of each to each control
-%     input
-
+%     input.
 % Author: Richard S. Russell
 % 
 %================================================
-clear;
- 
+% clear;
+% clc;
 addpath obsmutoolsfornewermatlabversions -END % required for some new MATLAB versions
 
 global fi_flag_Simulink
 
 newline = sprintf('\n');
 
+
+OL_analysis = 0;
 %% Trim aircraft to desired altitude and velocity
+
 %%
+x_a = 0;
 altitude = input('Enter the altitude for the simulation (ft)  :  ');
 velocity = input('Enter the velocity for the simulation (ft/s):  ');
 
@@ -54,13 +57,9 @@ fi_flag_Simulink = 0;
 trim_state_lin = trim_state_lo; trim_thrust_lin = trim_thrust_lo; trim_control_lin = trim_control_lo;
 [A_lo,B_lo,C_lo,D_lo] = linmod('LIN_F16Block', [trim_state_lin; trim_thrust_lin; trim_control_lin(1); trim_control_lin(2); trim_control_lin(3);...
 		dLEF; -trim_state_lin(8)*180/pi], [trim_thrust_lin; trim_control_lin(1); trim_control_lin(2); trim_control_lin(3)]);
-
+%     
 %% Make state space model
-%%
-SS_hi = ss(A_hi,B_hi,C_hi,D_hi);
-SS_lo = ss(A_lo,B_lo,C_lo,D_lo);
-
-
+%
 %% Make MATLAB matrix
 %%
 mat_hi = [A_hi B_hi; C_hi D_hi];
@@ -73,17 +72,20 @@ mat_lo = [A_lo B_lo; C_lo D_lo];
 %% Select the components that make up the longitude A matrix
 %%
 A_longitude_hi = mat_hi([3 5 7 8 11 13 14], [3 5 7 8 11 13 14]);
-A_longitude_lo = mat_lo([3 5 7 8 11 13 14], [3 5 7 8 11 13 14]);
+% A_longitude_lo = mat_lo([3 5 7 8 11 13 14], [3 5 7 8 11 13 14]);
+A_longitude_lo = mat_lo([7 8 5 11 13 14], [7 8 5 11 13 14]);
 
 %% Select the components that make up the longitude B matrix
 %%
 B_longitude_hi = mat_hi([3 5 7 8 11 13 14], [19 20]);
-B_longitude_lo = mat_lo([3 5 7 8 11 13 14], [19 20]);
+% B_longitude_lo = mat_lo([3 5 7 8 11 13 14], [19 20]);
+B_longitude_lo = mat_lo([7 8 5 11 13 14], [19 20]);
 
 %% Select the components that make up the longitude C matrix
 %%
 C_longitude_hi = mat_hi([21 23 25 26 29], [3 5 7 8 11 13 14]);
-C_longitude_lo = mat_lo([21 23 25 26 29], [3 5 7 8 11 13 14]);
+% C_longitude_lo = mat_lo([21 23 25 26 29], [3 5 7 8 11 13 14]);
+C_longitude_lo = mat_lo([21 23 25 26 29], [7 8 5 11 13 14]);
 
 %% Select the components that make up the longitude D matrix
 %%
@@ -93,6 +95,8 @@ D_longitude_lo = mat_lo([21 23 25 26 29], [19 20]);
 SS_long_hi = ss(A_longitude_hi, B_longitude_hi, C_longitude_hi, D_longitude_hi);
 SS_long_lo = ss(A_longitude_lo, B_longitude_lo, C_longitude_lo, D_longitude_lo);
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Lateral Directional %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,25 +104,137 @@ SS_long_lo = ss(A_longitude_lo, B_longitude_lo, C_longitude_lo, D_longitude_lo);
 %% Select the components that make up the lateral A matrix
 %%
 A_lateral_hi = mat_hi([4 6 7 9 10 12 13 15 16], [4 6 7 9 10 12 13 15 16]);
-A_lateral_lo = mat_lo([4 6 7 9 10 12 13 15 16], [4 6 7 9 10 12 13 15 16]);
+% A_lateral_lo = mat_lo([4 6 7 9 10 12 13 15 16], [4 6 7 9 10 12 13 15 16]);
+A_lateral_lo = mat_lo([9 4 10 12 13 15 16], [9 4 10 12 13 15 16]);
 
 %% Select the components that make up the lateral B matrix
 %%
 B_lateral_hi = mat_hi([4 6 7 9 10 12 13 15 16], [19 21 22]);
-B_lateral_lo = mat_lo([4 6 7 9 10 12 13 15 16], [19 21 22]);
+% B_lateral_lo = mat_lo([4 6 7 9 10 12 13 15 16], [19 21 22]);
+B_lateral_lo = mat_lo([9 4 10 12 13 15 16], [19 21 22]);
 
 %% Select the components that make up the lateral C matrix
 %%
 C_lateral_hi = mat_hi([22 24 25 27 28 30], [4 6 7 9 10 12 13 15 16]);
-C_lateral_lo = mat_lo([22 24 25 27 28 30], [4 6 7 9 10 12 13 15 16]);
+% C_lateral_lo = mat_lo([22 24 25 27 28 30], [4 6 7 9 10 12 13 15 16]);
+C_lateral_lo = mat_lo([22 24 25 27 28 30], [9 4 10 12 13 15 16]);
 
 %% Select the components that make up the lateral D matrix
 %%
 D_lateral_hi = mat_hi([22 24 25 27 28 30], [19 21 22]);
 D_lateral_lo = mat_lo([22 24 25 27 28 30], [19 21 22]);
 
+
 SS_lat_hi = ss(A_lateral_hi, B_lateral_hi, C_lateral_hi, D_lateral_hi);
 SS_lat_lo = ss(A_lateral_lo, B_lateral_lo, C_lateral_lo, D_lateral_lo);
+
+%% Open loop system analysis
+% Longitudinal eigenmotions
+
+if OL_analysis == 1
+    A_longitude_lo_OL = mat_lo([7 8 5 11], [7 8 5 11]);
+    B_longitude_lo_OL = mat_lo([7 8 5 11], [14]);
+    C_longitude_lo_OL = mat_lo([25 26 23 29], [7 8 5 11]);
+    D_longitude_lo_OL = mat_lo([25 26 23 29], [14]);
+
+    sys_longitudinal_lo_OL = ss(A_longitude_lo_OL, B_longitude_lo_OL, C_longitude_lo_OL, D_longitude_lo_OL);
+
+    eig(A_longitude_lo_OL)
+
+    % Phugoid
+    T_final_PH = 600;
+    time_step_PH = 0.01;
+    square_length_PH = 1;
+    square_size_PH = 1;
+    time_to_square_PH = 0;
+    input_type_PH = "Step";  % Options: Single or Doublet or Step
+    n_inputs_PH = 1;
+
+    [t_PH, u_PH] = input_function(T_final_PH, time_step_PH, square_length_PH, square_size_PH, time_to_square_PH, input_type_PH, n_inputs_PH);
+
+    figure(3)
+    lsim(sys_longitudinal_lo_OL, u_PH, t_PH)
+    hold on
+    title("Phugoid eigenmotion")
+    grid on
+
+    % Short period
+    T_final_SP = 20;
+    time_step_SP = 0.001;
+    square_length_SP = 1;
+    square_size_SP = 1;
+    time_to_square_SP = 0;
+    input_type_SP = "Step";  % Options: Single or Doublet or Step
+    n_inputs_SP = 1;
+
+    [t_SP, u_SP] = input_function(T_final_SP, time_step_SP, square_length_SP, square_size_SP, time_to_square_SP, input_type_SP, n_inputs_SP);
+
+    figure(4)
+    lsim(sys_longitudinal_lo_OL, u_SP, t_SP)
+    hold on
+    title("Short period eigenmotion")
+    grid on
+
+    % Lateral eigenmotions
+    A_lateral_lo_OL = mat_lo([9 4 10 12], [9 4 10 12]);
+    B_lateral_lo_OL = mat_lo([9 4 10 12], [15 16]);
+    C_lateral_lo_OL = mat_lo([27 22 28 30], [9 4 10 12]);
+    D_lateral_lo_OL = mat_lo([27 22 28 30], [15 16]);
+
+    sys_lateral_lo_OL = ss(A_lateral_lo_OL, B_lateral_lo_OL, C_lateral_lo_OL, D_lateral_lo_OL);
+    eig(A_lateral_lo_OL)
+
+    % Dutch roll
+    T_final_DR = 15;
+    time_step_DR = 0.001;
+    square_length_DR = 1;
+    square_size_DR = 1;
+    time_to_square_DR = 1;
+    input_type_DR = "Single";  % Options: Single or Doublet or Step
+    n_inputs_DR = 2;
+
+    [t_DR, u_DR] = input_function(T_final_DR, time_step_DR, square_length_DR, square_size_DR, time_to_square_DR, input_type_DR, n_inputs_DR);
+
+    figure(5)
+    lsim(sys_lateral_lo_OL, u_DR, t_DR)
+    hold on
+    title("Dutch roll eigenmotion")
+    grid on
+
+    % Roll subsidence
+    T_final_RS = 15;
+    time_step_RS = 0.001;
+    square_length_RS = 1;
+    square_size_RS = 1;
+    time_to_square_RS = 1;
+    input_type_RS = "Step";  % Options: Single or Doublet or Step
+    n_inputs_RS = 2;
+
+    [t_RS, u_RS] = input_function(T_final_RS, time_step_RS, square_length_RS, square_size_RS, time_to_square_RS, input_type_RS, n_inputs_RS);
+
+    figure(6)
+    lsim(sys_lateral_lo_OL, u_RS, t_RS)
+    hold on
+    title("Roll subsidence eigenmotion")
+    grid on
+
+    % Spiral
+    T_final_S = 600;
+    time_step_S = 0.01;
+    square_length_S = 1;
+    square_size_S = 1;
+    time_to_square_S = 0;
+    input_type_S = "Step";  % Options: Single or Doublet or Step
+    n_inputs_S = 2;
+
+    [t_S, u_S] = input_function(T_final_S, time_step_S, square_length_S, square_size_S, time_to_square_S, input_type_S, n_inputs_S);
+
+    figure(7)
+    lsim(sys_lateral_lo_OL, u_S, t_S)
+    hold on
+    title("Spiral eigenmotion")
+    grid on
+end
 
 %% Make longitudal direction SYSTEM matrix
 %%
@@ -147,176 +263,177 @@ lat_poles_lo = spoles(sys_lat_lo);
 %% Display results
 
 
-clc;
+
 
 disp(sprintf('Altitude: %.3f ft.', altitude));
 disp(sprintf('Velocity: %.3f ft/s\n\n', velocity));
 
-disp('For HIFI Model:  ');
-disp('Longitudal Direction:  ');
-disp(newline);
+% disp('For HIFI Model:  ');
+% disp('Longitudal Direction:  ');
+% disp(newline);
+% 
+% disp('A =')
+% for i=1:length( A_longitude_hi(:,1) )
+%     mprintf([ A_longitude_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('B =')
+% for i=1:length( B_longitude_hi(:,1) )
+%     mprintf([ B_longitude_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('C =')
+% for i=1:length( C_longitude_hi(:,1) )
+%     mprintf([ C_longitude_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('D =')
+% for i=1:length( D_longitude_hi(:,1) )
+%     mprintf([ D_longitude_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% rifd(long_poles_hi)
 
-disp('A =')
-for i=1:length( A_longitude_hi(:,1) )
-    mprintf([ A_longitude_hi(i,:) ],'  %.3e ')
-end %for
+% disp(newline);
+% 
+% disp('Lateral Direaction:  ');
+% 
+% disp(newline);
+% 
+% disp('A =')
+% for i=1:length( A_lateral_hi(:,1) )
+%     mprintf([ A_lateral_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('B =')
+% for i=1:length( B_lateral_hi(:,1) )
+%     mprintf([ B_lateral_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('C =')
+% for i=1:length( C_lateral_hi(:,1) )
+%     mprintf([ C_lateral_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('D =')
+% for i=1:length( D_lateral_hi(:,1) )
+%     mprintf([ D_lateral_hi(i,:) ],'  %.3e ')
+% end %for
+% 
+% rifd(lat_poles_hi)
 
-disp('B =')
-for i=1:length( B_longitude_hi(:,1) )
-    mprintf([ B_longitude_hi(i,:) ],'  %.3e ')
-end %for
+% disp(newline);
+% disp(newline);
+% disp('For LOFI Model:  ');
+% disp('Longitudal Direction:  ');
+% disp(newline);
+% 
+% disp('A =')
+% for i=1:length( A_longitude_lo(:,1) )
+%     mprintf([ A_longitude_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('B =')
+% for i=1:length( B_longitude_lo(:,1) )
+%     mprintf([ B_longitude_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('C =')
+% for i=1:length( C_longitude_lo(:,1) )
+%     mprintf([ C_longitude_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('D =')
+% for i=1:length( D_longitude_lo(:,1) )
+%     mprintf([ D_longitude_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% % Display the real, imaginary, frequency (magnitude) and damping ratios
+% rifd(long_poles_lo)
+% 
+% disp(newline);
+% 
+% disp('Lateral Direaction:  ');
+% 
+% disp(newline);
+% 
+% disp('A =')
+% for i=1:length( A_lateral_lo(:,1) )
+%     mprintf([ A_lateral_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('B =')
+% for i=1:length( B_lateral_lo(:,1) )
+%     mprintf([ B_lateral_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('C =')
+% for i=1:length( C_lateral_lo(:,1) )
+%     mprintf([ C_lateral_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% disp('D =')
+% for i=1:length( D_lateral_lo(:,1) )
+%     mprintf([ D_lateral_lo(i,:) ],'  %.3e ')
+% end %for
+% 
+% % Display the real, imaginary, frequency (magnitude) and damping ratios
+% rifd(lat_poles_lo)
+% % 
+% %% All Poles
+% figure(1); 
+% pzmap(SS_hi, 'r', SS_lo, 'b');
+% title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nAll Poles\n Blue = lofi Red = hifi.', altitude, velocity);
+% title(title_string);
+% sgrid;
+% 
+% %% Long. Poles
+% %%
+% figure(2); 
+% pzmap(SS_long_hi, 'r', SS_long_lo, 'b');
+% title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nLongitudal Directional Poles\n Blue = lofi Red = hifi.', altitude, velocity);
+% title(title_string);
+% sgrid;
+% 
+% %% Lat. Poles
+% %%
+% figure(3); 
+% pzmap(SS_lat_hi, 'r', SS_lat_lo, 'b');
+% title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nLateral Directional Poles\n Blue = lofi Red = hifi.', altitude, velocity);
+% title(title_string);
+% sgrid;
+% 
+% % Create Bode Plots
+% 
+% omega = logspace(-2,2,100);
+% 
+% sysg_lat_hi = frsp(sys_lat_hi,omega);
+% sysg_lat_lo = frsp(sys_lat_lo,omega);
+% 
+% sysg_long_hi = frsp(sys_long_hi,omega);
+% sysg_long_lo = frsp(sys_long_lo,omega);
+% 
+% figure;
+% BodeCount = 0;
+% for state = 1:1:5
+%     for control = 1:1:2
+%         BodeCount = BodeCount +1;
+%         title_string = sprintf('Bode Plot #%d\n State = %d\n Control = %d', BodeCount,state,control);
+%         vplot('bode', sel(sysg_long_hi,state,control), 'b--', sel(sysg_long_lo,state,control), 'r');
+%         disp(title_string);
+%         legend('hifi', 'lofi');
+%         pause;
+%     end
+% end
+% 
+% for state = 1:1:6
+%     for control = 1:1:3
+%         BodeCount = BodeCount + 1;
+%         title_string = sprintf('Bode Plot #%d\n State = %d\n Control = %d', BodeCount,state,control);
+%         vplot('bode', sel(sysg_lat_hi,state,control), 'b--', sel(sysg_lat_lo,state,control), 'r');
+%         disp(title_string);
+%         legend('hifi', 'lofi');
+%         pause;
+%     end
+% end
 
-disp('C =')
-for i=1:length( C_longitude_hi(:,1) )
-    mprintf([ C_longitude_hi(i,:) ],'  %.3e ')
-end %for
-
-disp('D =')
-for i=1:length( D_longitude_hi(:,1) )
-    mprintf([ D_longitude_hi(i,:) ],'  %.3e ')
-end %for
-
-rifd(long_poles_hi)
-
-disp(newline);
-
-disp('Lateral Direaction:  ');
-
-disp(newline);
-
-disp('A =')
-for i=1:length( A_lateral_hi(:,1) )
-    mprintf([ A_lateral_hi(i,:) ],'  %.3e ')
-end %for
-
-disp('B =')
-for i=1:length( B_lateral_hi(:,1) )
-    mprintf([ B_lateral_hi(i,:) ],'  %.3e ')
-end %for
-
-disp('C =')
-for i=1:length( C_lateral_hi(:,1) )
-    mprintf([ C_lateral_hi(i,:) ],'  %.3e ')
-end %for
-
-disp('D =')
-for i=1:length( D_lateral_hi(:,1) )
-    mprintf([ D_lateral_hi(i,:) ],'  %.3e ')
-end %for
-
-rifd(lat_poles_hi)
-
-disp(newline);
-disp(newline);
-disp('For LOFI Model:  ');
-disp('Longitudal Direction:  ');
-disp(newline);
-
-disp('A =')
-for i=1:length( A_longitude_lo(:,1) )
-    mprintf([ A_longitude_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('B =')
-for i=1:length( B_longitude_lo(:,1) )
-    mprintf([ B_longitude_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('C =')
-for i=1:length( C_longitude_lo(:,1) )
-    mprintf([ C_longitude_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('D =')
-for i=1:length( D_longitude_lo(:,1) )
-    mprintf([ D_longitude_lo(i,:) ],'  %.3e ')
-end %for
-
-% Display the real, imaginary, frequency (magnitude) and damping ratios
-rifd(long_poles_lo)
-
-disp(newline);
-
-disp('Lateral Direaction:  ');
-
-disp(newline);
-
-disp('A =')
-for i=1:length( A_lateral_lo(:,1) )
-    mprintf([ A_lateral_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('B =')
-for i=1:length( B_lateral_lo(:,1) )
-    mprintf([ B_lateral_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('C =')
-for i=1:length( C_lateral_lo(:,1) )
-    mprintf([ C_lateral_lo(i,:) ],'  %.3e ')
-end %for
-
-disp('D =')
-for i=1:length( D_lateral_lo(:,1) )
-    mprintf([ D_lateral_lo(i,:) ],'  %.3e ')
-end %for
-
-% Display the real, imaginary, frequency (magnitude) and damping ratios
-rifd(lat_poles_lo)
-
-%% All Poles
-figure(1); 
-pzmap(SS_hi, 'r', SS_lo, 'b');
-title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nAll Poles\n Blue = lofi Red = hifi.', altitude, velocity);
-title(title_string);
-sgrid;
-
-%% Long. Poles
-%%
-figure(2); 
-pzmap(SS_long_hi, 'r', SS_long_lo, 'b');
-title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nLongitudal Directional Poles\n Blue = lofi Red = hifi.', altitude, velocity);
-title(title_string);
-sgrid;
-
-%% Lat. Poles
-%%
-figure(3); 
-pzmap(SS_lat_hi, 'r', SS_lat_lo, 'b');
-title_string = sprintf('Altitude = %.2f ft Velocity = %.2f ft/s\nLateral Directional Poles\n Blue = lofi Red = hifi.', altitude, velocity);
-title(title_string);
-sgrid;
-
-% Create Bode Plots
-
-omega = logspace(-2,2,100);
-
-sysg_lat_hi = frsp(sys_lat_hi,omega);
-sysg_lat_lo = frsp(sys_lat_lo,omega);
-
-sysg_long_hi = frsp(sys_long_hi,omega);
-sysg_long_lo = frsp(sys_long_lo,omega);
-
-figure;
-BodeCount = 0;
-for state = 1:1:5
-    for control = 1:1:2
-        BodeCount = BodeCount +1;
-        title_string = sprintf('Bode Plot #%d\n State = %d\n Control = %d', BodeCount,state,control);
-        vplot('bode', sel(sysg_long_hi,state,control), 'b--', sel(sysg_long_lo,state,control), 'r');
-        disp(title_string);
-        legend('hifi', 'lofi');
-        pause;
-    end
-end
-
-for state = 1:1:6
-    for control = 1:1:3
-        BodeCount = BodeCount + 1;
-        title_string = sprintf('Bode Plot #%d\n State = %d\n Control = %d', BodeCount,state,control);
-        vplot('bode', sel(sysg_lat_hi,state,control), 'b--', sel(sysg_lat_lo,state,control), 'r');
-        disp(title_string);
-        legend('hifi', 'lofi');
-        pause;
-    end
-end
