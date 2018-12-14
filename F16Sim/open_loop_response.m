@@ -21,8 +21,9 @@ aircraft_long = ss(A_red_long, B_red_long, C_red_long, D_red_long, ...
                     'StateName', {'V', 'alpha', 'theta', 'q'}, ... 
                      'InputName', {'d_e'}, ...
                      'OutputName', {'V', '\alpha', '\theta', 'q'});
+                 
 time_phugoid = linspace(0, 200, 1000);
-time_short_period = linspace(0, 5, 1000);
+time_short_period = linspace(0, 15, 1000);
 u_phugoid = ones(size(time_phugoid));
 u_short_period = ones(size(time_short_period));
 if (plot)

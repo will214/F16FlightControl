@@ -2,11 +2,11 @@ save_matrices = 0;
 if (save_matrices)
     FindF16Dynamics;
     save('state_space/matrices_FL50_V300.mat', 'A_lo', 'B_lo', 'C_lo', 'D_lo')
-    save('state_space/matrices_FL50_V300_trim.mat', 'trim_state_lo', 'thrust', 'trim_control_lo');
+    save('state_space/matrices_FL50_V300_trim.mat', 'trim_state_lo', 'trim_thrust_lo', 'trim_control_lo');
 end
 
 trim = load('state_space/matrices_FL50_V300_trim.mat');
-trim_state_lin = [trim.trim_state_lo; trim.thrust; trim.trim_control_lo];
+trim_state_lin = [trim.trim_state_lo; trim.trim_thrust_lo; trim.trim_control_lo];
 state_space = load('state_space/matrices_FL50_V300.mat');
 
 A = state_space.A_lo;
@@ -25,12 +25,27 @@ aircraft_long = ss(A_red, B_red, C_red, D_red, ...
                      'InputName', {'thrust', 'd_e'}, ...
                      'OutputName', {'h', 'V', '\alpha', '\theta', 'q'});
                       
-Q = eye(5);   
-R = [1 0; 0 1;];
+Q = diag([30, 1, 1, 1, 1]);   
+R = [0.1 0; 0 2];
 % states are radiands 
 [K, S, E] = lqr(A_red, B_red, Q, R);
 K_inner = K(:, 2:end);
 K_h = K(:, 1);
 
 sim('lqr_terrain_following.slx', [0, 60]);
+
+aircraft_height = simout.Data(:, 1);
+reference_signal = canyon.Data(:, 2);
+canyon_height = canyon.Data(:, 2) - 40;
+x = canyon.Data(:, 1);
+
+plot(x, reference_signal); hold on;
+plot(x, aircraft_height, 'linewidth', 2);
+legend('Canyon height', 'Reference track', 'Aircraft height')
+figure;
+plot(x, (aircraft_height - reference_signal)*0.3048);
+
+
+
+
                  

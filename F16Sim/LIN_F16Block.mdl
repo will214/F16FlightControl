@@ -40,7 +40,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.154"
+    ComputedModelVersion    "1.155"
     NumModelReferences	    0
     NumTestPointedSignals   5
     TestPointedSignal {
@@ -115,7 +115,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1654.0, -195.0, 1280.0, 727.0]
+      Location		      [0.0, 23.0, 1280.0, 721.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -140,7 +140,7 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1242.0, 551.0]
+	  Extents		  [1242.0, 545.0]
 	  ZoomFactor		  [1.0024384894267615]
 	  Offset		  [-173.96594419275118, -147.32983036449752]
 	}
@@ -209,7 +209,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABrAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAUAAAACYgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAUAAAACXAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPg/////wAAAAAAAAAA/"
@@ -223,9 +223,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 03 19:32:55 2018"
-  RTWModifiedTimeStamp	  465764066
-  ModelVersionFormat	  "1.%<AutoIncrement:154>"
+  LastModifiedDate	  "Mon Dec 10 12:28:18 2018"
+  RTWModifiedTimeStamp	  466345661
+  ModelVersionFormat	  "1.%<AutoIncrement:155>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -503,7 +503,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "50"
-	  ExternalInput		  "[0 2109.41286818566 -2.24414977955152 -0.0935778861503754 0.0944687550564946]"
+	  ExternalInput		  "[0 2120.62144781519 -2.46068617229406 2.91286693086823e-16 2.79661206579015e-15]"
 	  FinalStateName	  "xFinal"
 	  InitialState		  "[]"
 	  LimitDataPoints	  off
@@ -1169,7 +1169,6 @@ Model {
     AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
-  WSMdlFileData		  "DataTag0"
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -1450,7 +1449,7 @@ Model {
   }
   System {
     Name		    "LIN_F16Block"
-    Location		    [-1654, -195, -374, 532]
+    Location		    [0, 23, 1280, 744]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1527,7 +1526,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Aileron\nActuator"
-	Location		[-1654, -195, -374, 532]
+	Location		[58, 131, 1338, 858]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1661,7 +1660,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Elevator\nActuator"
-	Location		[-1654, -195, -374, 532]
+	Location		[58, 131, 1338, 858]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1795,7 +1794,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Leading Edge Flap"
-	Location		[-1654, -195, -374, 532]
+	Location		[58, 131, 1338, 858]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2744,7 +2743,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Rudder\nActuator"
-	Location		[-1654, -195, -374, 532]
+	Location		[58, 131, 1338, 858]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2901,7 +2900,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Thrust\nModel"
-	Location		[-1654, -195, -374, 532]
+	Location		[58, 131, 1338, 858]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -3679,14 +3678,5 @@ Model {
       VerticalAlignment	      "top"
       ZOrder		      -1
     }
-  }
-}
-MatData {
-  NumRecords		  1
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    P     8    (     @         %    \"     $    !     0         %  0 !@    $    ,    3F%M90"
-    "  5F%L=64       X    P    !@    @    $          4    (     0    ,    !         !   P!X7V$ #@   #@    &    \"     8"
-    "         !0    @    !     0    $         \"0    @               "
   }
 }
