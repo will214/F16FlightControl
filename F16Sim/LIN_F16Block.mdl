@@ -40,7 +40,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.155"
+    ComputedModelVersion    "1.156"
     NumModelReferences	    0
     NumTestPointedSignals   5
     TestPointedSignal {
@@ -223,9 +223,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lorenzoterenzi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 10 12:28:18 2018"
-  RTWModifiedTimeStamp	  466345661
-  ModelVersionFormat	  "1.%<AutoIncrement:155>"
+  LastModifiedDate	  "Mon Dec 17 13:03:37 2018"
+  RTWModifiedTimeStamp	  466952601
+  ModelVersionFormat	  "1.%<AutoIncrement:156>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -503,7 +503,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "50"
-	  ExternalInput		  "[0 2120.62144781519 -2.46068617229406 2.91286693086823e-16 2.79661206579015e-15]"
+	  ExternalInput		  "[0 2033.26960842054 -2.29223595020035 -0.0746865999817116 0.155009376834188]"
 	  FinalStateName	  "xFinal"
 	  InitialState		  "[]"
 	  LimitDataPoints	  off
@@ -1169,6 +1169,7 @@ Model {
     AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
+  WSMdlFileData		  "DataTag0"
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -1526,7 +1527,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Aileron\nActuator"
-	Location		[58, 131, 1338, 858]
+	Location		[0, 23, 1280, 744]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1660,7 +1661,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Elevator\nActuator"
-	Location		[58, 131, 1338, 858]
+	Location		[0, 23, 1280, 744]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1794,7 +1795,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Leading Edge Flap"
-	Location		[58, 131, 1338, 858]
+	Location		[0, 23, 1280, 744]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2743,7 +2744,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Rudder\nActuator"
-	Location		[58, 131, 1338, 858]
+	Location		[0, 23, 1280, 744]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -2900,7 +2901,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Thrust\nModel"
-	Location		[58, 131, 1338, 858]
+	Location		[0, 23, 1280, 744]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -3678,5 +3679,14 @@ Model {
       VerticalAlignment	      "top"
       ZOrder		      -1
     }
+  }
+}
+MatData {
+  NumRecords		  1
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    P     8    (     @         %    \"     $    !     0         %  0 !@    $    ,    3F%M90"
+    "  5F%L=64       X    P    !@    @    $          4    (     0    ,    !         !   P!X7V$ #@   #@    &    \"     8"
+    "         !0    @    !     0    $         \"0    @               "
   }
 }
