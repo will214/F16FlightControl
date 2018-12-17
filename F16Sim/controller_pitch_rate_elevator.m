@@ -33,16 +33,20 @@ elevetor_deflection = - K(1) * new_angle_attack; % acceptable 6 deg approx
 % to change T_theta you want a lead lag filter
 % (1 + T_new) / (1 + T_old) that multiplies 
 % K (1 + T_new)/Den. The filter must stay outside of the control loop
-% to avoid modifying the pole location since T_new and T_old would end
+% to avoid modifying the pole location r T_new and T_old would end
 % up in the denominator
 s = tf('s');
 q_controller_num = H_q_de.Numerator{1};
 T_theta = q_controller_num(2)/q_controller_num(3);
 filter = (1 + T_req * s)/(1 + T_theta * s);
 controller_w_filter = minreal(filter * H_q_de);
+dc_gain = evalfr(controller_w_filter, 0);
+final_controller = controller_w_filter / (-dc_gain);
 
 % overshoot
-[y, t, x] = step(controller_w_filter);
+figure;
+[y, t, x] = step(final_controller);
+plot(t, y);
 overshoot = max(abs(y))/abs(y(end));
 
 % q6 check CAP and Gibson

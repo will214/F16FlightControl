@@ -31,9 +31,11 @@ for x_a = accelerometer_pos
                                               [trim_thrust_lin; trim_control_lin]);
     % initial states are already set in the model
     system = ss(A, B, C, D);
+    % logging transfer function
     H_mimo = tf(system);
     H_an_el = minreal(H_mimo(19, 2));
     tf_list(end + 1) = {H_an_el};
+    
     sim('SS_F16_Block', [TStart ,TFinal]);
     % output from simulink model
     acc_data(end + 1, :) = {sprintf('x_a = %.1f ft', x_a/0.3048), a_n_data.Data};

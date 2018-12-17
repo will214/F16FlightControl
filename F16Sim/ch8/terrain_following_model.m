@@ -1,13 +1,13 @@
 save_matrices = 0;
 if (save_matrices)
     FindF16Dynamics;
-    save('state_space/matrices_FL50_V300.mat', 'A_lo', 'B_lo', 'C_lo', 'D_lo')
-    save('state_space/matrices_FL50_V300_trim.mat', 'trim_state_lo', 'trim_thrust_lo', 'trim_control_lo');
+    save('../state_space/matrices_FL50_V300.mat', 'A_lo', 'B_lo', 'C_lo', 'D_lo')
+    save('../state_space/matrices_FL50_V300_trim.mat', 'trim_state_lo', 'trim_thrust_lo', 'trim_control_lo');
 end
 
-trim = load('state_space/matrices_FL50_V300_trim.mat');
+trim = load('../state_space/matrices_FL50_V300_trim.mat');
 trim_state_lin = [trim.trim_state_lo; trim.trim_thrust_lo; trim.trim_control_lo];
-state_space = load('state_space/matrices_FL50_V300.mat');
+state_space = load('../state_space/matrices_FL50_V300.mat');
 
 A = state_space.A_lo;
 B = state_space.B_lo;
@@ -39,11 +39,22 @@ reference_signal = canyon.Data(:, 2);
 canyon_height = canyon.Data(:, 2) - 40;
 x = canyon.Data(:, 1);
 
+fig1 = figure;
 plot(x, reference_signal); hold on;
 plot(x, aircraft_height, 'linewidth', 2);
-legend('Canyon height', 'Reference track', 'Aircraft height')
-figure;
-plot(x, (aircraft_height - reference_signal)*0.3048);
+grid on;
+xlabel('Position [ft]');
+ylabel('Altitude [ft]');
+title('Aircraft trajectory over canyon');
+legend('Reference track', 'Aircraft height')
+saveas(fig1, 'aircraft_lqr.png');
+fig2 = figure;
+plot(x, (aircraft_height - reference_signal)*0.3048, 'linewidth', 2);
+grid on;
+xlabel('Position [ft]');
+ylabel('Error [m]');
+title('Trajectory error w.r.t the reference track');
+saveas(fig2, 'error_lqr.png');
 
 
 
